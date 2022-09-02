@@ -7,6 +7,7 @@ import 'package:restaurant_app/models/restaurant.dart';
 import 'package:restaurant_app/modules/detail/detail_restaurant.dart';
 import 'package:restaurant_app/modules/list/restaurant_controller.dart';
 import 'package:restaurant_app/modules/search/search_restaurant.dart';
+import 'package:restaurant_app/modules/settings/settings_page.dart';
 import 'package:restaurant_app/utils/constants.dart';
 import 'package:restaurant_app/utils/styles.dart';
 import 'package:restaurant_app/widgets/empty_data.dart';
@@ -80,7 +81,7 @@ class ListRestaurants extends StatelessWidget {
                 ),
               ),
               ListTile(
-                onTap: () {},
+                onTap: () => Get.toNamed(SettingPage.routeName),
                 leading: const Icon(Icons.settings_rounded),
                 title: Text(
                   'settings'.tr,

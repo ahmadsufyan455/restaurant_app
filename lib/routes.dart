@@ -3,6 +3,7 @@ import 'package:restaurant_app/modules/detail/detail_restaurant.dart';
 import 'package:restaurant_app/modules/list/list_restaurants.dart';
 import 'package:restaurant_app/modules/review/review_restaurant.dart';
 import 'package:restaurant_app/modules/search/search_restaurant.dart';
+import 'package:restaurant_app/modules/settings/settings_page.dart';
 import 'package:restaurant_app/modules/splash/splash_screen.dart';
 
 List<GetPage> routes = [
@@ -31,6 +32,12 @@ List<GetPage> routes = [
   GetPage(
     name: ReviewRestaurant.routeName,
     page: () => const ReviewRestaurant(),
+    transition: Transition.rightToLeft,
+    transitionDuration: const Duration(milliseconds: 300),
+  ),
+  GetPage(
+    name: SettingPage.routeName,
+    page: () => const SettingPage(),
     transition: Transition.rightToLeft,
     transitionDuration: const Duration(milliseconds: 300),
   ),
