@@ -19,6 +19,9 @@ class Translation extends Translations {
           'waiting_search': 'Waiting for search...',
           'offline': 'Opps.. You\'re offline',
           'not_found': 'No data found!',
+          'profile': 'Profile',
+          'favourites': 'Favourites',
+          'settings': 'Settings',
         },
         'id': {
           'restaurant': 'Restoran',
@@ -36,6 +39,9 @@ class Translation extends Translations {
           'waiting_search': 'Menunggu pencarian...',
           'offline': 'Opps.. Koneksi kamu terputus',
           'not_found': 'Data tidak ditemukan!',
+          'profile': 'profil',
+          'favourites': 'Favorit',
+          'settings': 'Pengaturan',
         }
       };
 }
