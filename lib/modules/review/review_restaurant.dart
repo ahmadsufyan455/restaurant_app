@@ -36,12 +36,20 @@ class ReviewRestaurant extends StatelessWidget {
                   Text('add_review'.tr, style: kHeadingRegular),
                   IconButton(
                     onPressed: () {
-                      final review = ReviewModel(
-                        id: id,
-                        name: controller.nameController.text,
-                        review: controller.reviewController.text,
-                      );
-                      controller.addReview(review.toJson(), id);
+                      if (controller.nameController.text.isNotEmpty &&
+                          controller.reviewController.text.isNotEmpty) {
+                        final review = ReviewModel(
+                          id: id,
+                          name: controller.nameController.text,
+                          review: controller.reviewController.text,
+                        );
+                        controller.addReview(review.toJson(), id);
+                      } else {
+                        Get.snackbar(
+                          'error'.tr,
+                          'fill_required'.tr,
+                        );
+                      }
                     },
                     icon: const Icon(Icons.send),
                   ),

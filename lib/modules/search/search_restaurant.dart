@@ -45,8 +45,14 @@ class SearchRestaurant extends StatelessWidget {
                       textInputAction: TextInputAction.search,
                       controller: controller.searchController,
                       style: kBodyRegular,
-                      onSubmitted: (query) =>
-                          controller.getRestaurantResult(query),
+                      onSubmitted: (query) {
+                        query.isNotEmpty
+                            ? controller.getRestaurantResult(query)
+                            : Get.snackbar(
+                                'error'.tr,
+                                'fill_query'.tr,
+                              );
+                      },
                       decoration: InputDecoration(
                         isDense: true,
                         hintText: 'search'.tr,

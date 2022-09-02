@@ -22,6 +22,8 @@ class Translation extends Translations {
           'profile': 'Profile',
           'favourites': 'Favourites',
           'settings': 'Settings',
+          'fill_required': 'Please fill in all the fields first',
+          'fill_query': 'Please input your keyword first',
         },
         'id': {
           'restaurant': 'Restoran',
@@ -42,6 +44,8 @@ class Translation extends Translations {
           'profile': 'profil',
           'favourites': 'Favorit',
           'settings': 'Pengaturan',
+          'fill_required': 'Isi semua kolom terlebih dahulu',
+          'fill_query': 'Masukkan kata kunci terlebih dahulu',
         }
       };
 }
