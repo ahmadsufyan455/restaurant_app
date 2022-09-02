@@ -7,6 +7,7 @@ import 'package:restaurant_app/modules/detail/detail_controller.dart';
 import 'package:restaurant_app/modules/review/review_restaurant.dart';
 import 'package:restaurant_app/utils/constants.dart';
 import 'package:restaurant_app/utils/styles.dart';
+import 'package:restaurant_app/widgets/empty_data.dart';
 import 'package:restaurant_app/widgets/no_connection.dart';
 
 class DetailRestaurant extends StatelessWidget {
@@ -156,11 +157,11 @@ class DetailRestaurant extends StatelessWidget {
                               trimLines: 5,
                               colorClickableText: kAmber,
                               trimMode: TrimMode.Line,
-                              trimCollapsedText: 'Show more',
-                              trimExpandedText: 'Show less',
+                              trimCollapsedText: 'more'.tr,
+                              trimExpandedText: 'less'.tr,
                             ),
                             const SizedBox(height: 16.0),
-                            Text('Foods', style: kBodyBold),
+                            Text('foods'.tr, style: kBodyBold),
                             const SizedBox(height: 4.0),
                             SizedBox(
                               height: 35.0,
@@ -192,7 +193,7 @@ class DetailRestaurant extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 16.0),
-                            Text('Drinks', style: kBodyBold),
+                            Text('drinks'.tr, style: kBodyBold),
                             const SizedBox(height: 4.0),
                             SizedBox(
                               height: 35.0,
@@ -228,7 +229,7 @@ class DetailRestaurant extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text('Reviews', style: kBodyBold),
+                                Text('reviews'.tr, style: kBodyBold),
                                 TextButton(
                                   onPressed: () {
                                     Get.toNamed(
@@ -243,7 +244,7 @@ class DetailRestaurant extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(10.0),
                                     ),
                                     child: Text(
-                                      '+ Add Review',
+                                      'add_review'.tr,
                                       style: kBodyRegular.copyWith(
                                         color: kWhite,
                                       ),
@@ -309,9 +310,9 @@ class DetailRestaurant extends StatelessWidget {
                       ),
                     );
                   },
-                  onEmpty: const Text('Empty'),
+                  onEmpty: const EmptyData(),
                   onError: (error) => Text(
-                    'Something went wrong : $error',
+                    'error'.tr + error!,
                   ),
                   onLoading: Center(
                     child: LoadingAnimationWidget.fourRotatingDots(

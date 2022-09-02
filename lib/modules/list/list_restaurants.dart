@@ -35,12 +35,12 @@ class ListRestaurants extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Restaurant',
+                        'restaurant'.tr,
                         style: kHeadingBold,
                       ),
                       const SizedBox(height: 4.0),
                       Text(
-                        'Recommendation restaurant for you',
+                        'recommendation'.tr,
                         style: kBodyRegular,
                       ),
                     ],
@@ -71,7 +71,7 @@ class ListRestaurants extends StatelessWidget {
                             : const NotFoundState(),
                         onEmpty: const EmptyData(),
                         onError: (error) => Text(
-                          'Something went wrong : $error',
+                          'error'.tr + error!,
                         ),
                         onLoading: Center(
                           child: LoadingAnimationWidget.fourRotatingDots(

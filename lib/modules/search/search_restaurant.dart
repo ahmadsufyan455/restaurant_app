@@ -49,7 +49,7 @@ class SearchRestaurant extends StatelessWidget {
                           controller.getRestaurantResult(query),
                       decoration: InputDecoration(
                         isDense: true,
-                        hintText: 'Search restaurant...',
+                        hintText: 'search'.tr,
                         hintStyle: kBodyRegularHint,
                         prefixIcon: const Icon(Icons.search),
                         border: const OutlineInputBorder(
@@ -71,7 +71,7 @@ class SearchRestaurant extends StatelessWidget {
                     : const NotFoundState(),
                 onEmpty: const EmptyData(),
                 onError: (error) => Text(
-                  'Something went wrong : $error',
+                  'error'.tr + error!,
                 ),
                 onLoading: Center(
                   child: LoadingAnimationWidget.fourRotatingDots(

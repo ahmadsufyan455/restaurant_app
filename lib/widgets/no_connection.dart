@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:restaurant_app/utils/constants.dart';
 import 'package:restaurant_app/utils/styles.dart';
+import 'package:get/get.dart';
 
 class NoConnectionState extends StatefulWidget {
   const NoConnectionState({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _NoConnectionStateState extends State<NoConnectionState> {
       children: [
         Lottie.asset('$lottiePath/no_internet.json', width: 150.0),
         const SizedBox(height: 16.0),
-        Text('Opps.. You\'re Offline', style: kBodyBold),
+        Text('offline'.tr, style: kBodyBold),
       ],
     );
   }

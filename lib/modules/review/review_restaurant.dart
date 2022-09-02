@@ -33,7 +33,7 @@ class ReviewRestaurant extends StatelessWidget {
                       child: const Icon(Icons.arrow_back),
                     ),
                   ),
-                  Text('Add Review', style: kHeadingRegular),
+                  Text('add_review'.tr, style: kHeadingRegular),
                   IconButton(
                     onPressed: () {
                       final review = ReviewModel(
@@ -53,7 +53,7 @@ class ReviewRestaurant extends StatelessWidget {
                 style: kBodyRegular,
                 decoration: InputDecoration(
                   isDense: true,
-                  hintText: 'Your name',
+                  hintText: 'name'.tr,
                   hintStyle: kBodyRegularHint,
                   border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -75,7 +75,7 @@ class ReviewRestaurant extends StatelessWidget {
                 maxLines: 5,
                 decoration: InputDecoration(
                   isDense: true,
-                  hintText: 'Review...',
+                  hintText: 'review'.tr,
                   hintStyle: kBodyRegularHint,
                   border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
