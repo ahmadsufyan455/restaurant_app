@@ -6,3 +6,4 @@ const imageLarge = 'https://restaurant-api.dicoding.dev/images/large/';
 
 // assets
 const lottiePath = 'assets/lotties';
+const imagePath = 'assets/images';

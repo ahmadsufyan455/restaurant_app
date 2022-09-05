@@ -5,7 +5,9 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:lottie/lottie.dart';
 import 'package:restaurant_app/models/restaurant.dart';
 import 'package:restaurant_app/modules/detail/detail_restaurant.dart';
+import 'package:restaurant_app/modules/favorite/favorite_restaurant.dart';
 import 'package:restaurant_app/modules/list/restaurant_controller.dart';
+import 'package:restaurant_app/modules/profile/author_profile.dart';
 import 'package:restaurant_app/modules/search/search_restaurant.dart';
 import 'package:restaurant_app/modules/settings/settings_page.dart';
 import 'package:restaurant_app/utils/constants.dart';
@@ -65,7 +67,7 @@ class ListRestaurants extends StatelessWidget {
                 ),
               ),
               ListTile(
-                onTap: () {},
+                onTap: () => Get.toNamed(AuthorProfile.routeName),
                 leading: const Icon(Icons.account_circle_rounded),
                 title: Text(
                   'profile'.tr,
@@ -73,7 +75,7 @@ class ListRestaurants extends StatelessWidget {
                 ),
               ),
               ListTile(
-                onTap: () {},
+                onTap: () => Get.toNamed(FavoriteRestaurant.routeName),
                 leading: const Icon(Icons.favorite_rounded),
                 title: Text(
                   'favourites'.tr,

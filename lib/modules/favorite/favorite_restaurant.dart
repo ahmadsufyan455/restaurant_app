@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:restaurant_app/utils/constants.dart';
+import 'package:get/get.dart';
 
-import '../../utils/constants.dart';
 import '../../utils/styles.dart';
 
-class SettingPage extends StatelessWidget {
-  const SettingPage({Key? key}) : super(key: key);
+class FavoriteRestaurant extends StatelessWidget {
+  const FavoriteRestaurant({Key? key}) : super(key: key);
 
-  static const routeName = '/settings';
+  static const routeName = '/favorite';
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class SettingPage extends StatelessWidget {
         centerTitle: true,
         elevation: 0,
         title: Text(
-          'settings'.tr,
+          'favourites'.tr,
           style: kHeadingRegular,
         ),
       ),

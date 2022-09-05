@@ -41,7 +41,7 @@ class Translation extends Translations {
           'waiting_search': 'Menunggu pencarian...',
           'offline': 'Opps.. Koneksi kamu terputus',
           'not_found': 'Data tidak ditemukan!',
-          'profile': 'profil',
+          'profile': 'Profil',
           'favourites': 'Favorit',
           'settings': 'Pengaturan',
           'fill_required': 'Isi semua kolom terlebih dahulu',
