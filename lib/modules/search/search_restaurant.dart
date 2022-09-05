@@ -5,6 +5,7 @@ import 'package:restaurant_app/models/restaurant.dart';
 import 'package:restaurant_app/modules/search/search_controller.dart';
 import 'package:restaurant_app/utils/styles.dart';
 import 'package:restaurant_app/widgets/empty_data.dart';
+import 'package:restaurant_app/widgets/no_connection.dart';
 import 'package:restaurant_app/widgets/not_found.dart';
 
 import '../../utils/constants.dart';
@@ -71,20 +72,26 @@ class SearchRestaurant extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: controller.obx(
-                (data) => data!.restaurants!.isNotEmpty
-                    ? itemList(data)
-                    : const NotFoundState(),
-                onEmpty: const EmptyData(),
-                onError: (error) => Text(
-                  'error'.tr + error!,
-                ),
-                onLoading: Center(
-                  child: LoadingAnimationWidget.fourRotatingDots(
-                    color: kAmber,
-                    size: 50.0,
-                  ),
-                ),
+              child: Obx(
+                () => controller.connectionType.value == 0
+                    ? const Center(
+                        child: NoConnectionState(),
+                      )
+                    : controller.obx(
+                        (data) => data!.restaurants!.isNotEmpty
+                            ? itemList(data)
+                            : const NotFoundState(),
+                        onEmpty: const EmptyData(),
+                        onError: (error) => Text(
+                          'error'.tr + error!,
+                        ),
+                        onLoading: Center(
+                          child: LoadingAnimationWidget.fourRotatingDots(
+                            color: kAmber,
+                            size: 50.0,
+                          ),
+                        ),
+                      ),
               ),
             ),
           ],
