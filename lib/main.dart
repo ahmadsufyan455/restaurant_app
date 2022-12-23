@@ -9,8 +9,6 @@ import 'package:get/get.dart';
 /*
 ** Created by Ahmad Sufyan
 ** initial commit on 2 sept 2022
-** build with flutter 3.0.5
-** soon to be update to flutter 3.3.0
 */
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
