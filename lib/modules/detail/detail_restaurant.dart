@@ -31,6 +31,15 @@ class DetailRestaurant extends StatelessWidget {
           'Detail',
           style: kHeadingRegular,
         ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.favorite_border,
+              color: Colors.red.shade400,
+            ),
+          )
+        ],
       ),
       body: SafeArea(
         child: Obx(
