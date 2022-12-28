@@ -46,13 +46,14 @@ class Restaurants {
   String? city;
   num? rating;
 
-  Restaurants(
-      {this.id,
-      this.name,
-      this.description,
-      this.pictureId,
-      this.city,
-      this.rating});
+  Restaurants({
+    this.id,
+    this.name,
+    this.description,
+    this.pictureId,
+    this.city,
+    this.rating,
+  });
 
   Restaurants.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -61,5 +62,16 @@ class Restaurants {
     pictureId = json['pictureId'];
     city = json['city'];
     rating = json['rating'];
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+      'description': description,
+      'pictureId': pictureId,
+      'city': city,
+      'rating': rating,
+    };
   }
 }

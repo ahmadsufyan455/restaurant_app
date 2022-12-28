@@ -3,23 +3,31 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get/get.dart';
 import 'package:restaurant_app/models/detail_restaurant.dart';
+import 'package:restaurant_app/modules/favorite/favorite_controller.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../database/database_helper.dart';
+import '../../models/restaurant.dart';
 import '../../services/api_provider.dart';
 
 class DetailController extends GetxController
     with StateMixin<DetailRestaurantModel> {
   final _apiProvider = ApiProvider();
+  late SharedPreferences prefs;
+
+  void getRestaurants() => Get.find<FavoriteController>().getRestaurants();
+
+  final DatabaseHelper _dbHelper = DatabaseHelper();
+  RxBool isFavorite = false.obs;
 
   var connectionType = 0.obs;
   final Connectivity _connectivity = Connectivity();
   late StreamSubscription _streamSubscription;
 
-  final String id;
-
-  DetailController({required this.id});
+  final String id = Get.arguments;
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
     getConnectivityType();
     _streamSubscription =
@@ -29,6 +37,22 @@ class DetailController extends GetxController
     }, onError: (err) {
       change(null, status: RxStatus.error(err.toString()));
     });
+    prefs = await SharedPreferences.getInstance();
+    if (prefs.getBool(id) != null) {
+      isFavorite.value = prefs.getBool(id)!;
+    }
+  }
+
+  Future<void> addRestaurant(Restaurants restaurant, bool isFavorite) async {
+    await _dbHelper.insertRestaurant(restaurant);
+    await prefs.setBool(id, isFavorite);
+    getRestaurants();
+  }
+
+  void deleteRestaurant(String id) async {
+    await _dbHelper.deleteRestaurant(id);
+    await prefs.remove(id);
+    getRestaurants();
   }
 
   Future<void> getConnectivityType() async {

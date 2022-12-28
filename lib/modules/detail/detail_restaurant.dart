@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:readmore/readmore.dart';
+import 'package:restaurant_app/models/restaurant.dart';
 import 'package:restaurant_app/modules/detail/detail_controller.dart';
 import 'package:restaurant_app/modules/review/review_restaurant.dart';
 import 'package:restaurant_app/utils/constants.dart';
@@ -18,7 +19,8 @@ class DetailRestaurant extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final id = Get.arguments;
-    final controller = Get.put(DetailController(id: id));
+    final controller = Get.put(DetailController());
+    Restaurants? restaurant;
     return Scaffold(
       appBar: AppBar(
         leading: const BackButton(
@@ -33,12 +35,24 @@ class DetailRestaurant extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.favorite_border,
-              color: Colors.red.shade400,
+            onPressed: () {
+              if (!controller.isFavorite.value) {
+                controller.addRestaurant(restaurant!, true);
+                controller.isFavorite.value = true;
+              } else {
+                controller.deleteRestaurant(id);
+                controller.isFavorite.value = false;
+              }
+            },
+            icon: Obx(
+              () => Icon(
+                !controller.isFavorite.value
+                    ? Icons.favorite_border
+                    : Icons.favorite,
+                color: Colors.red.shade400,
+              ),
             ),
-          )
+          ),
         ],
       ),
       body: SafeArea(
@@ -50,6 +64,14 @@ class DetailRestaurant extends StatelessWidget {
               : controller.obx(
                   (data) {
                     final restaurantData = data!.restaurant!;
+                    restaurant = Restaurants(
+                      id: restaurantData.id,
+                      name: restaurantData.name,
+                      description: restaurantData.description,
+                      pictureId: restaurantData.pictureId,
+                      city: restaurantData.city,
+                      rating: restaurantData.rating,
+                    );
                     return Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: SingleChildScrollView(
