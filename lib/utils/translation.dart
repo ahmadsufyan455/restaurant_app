@@ -24,6 +24,7 @@ class Translation extends Translations {
           'settings': 'Settings',
           'fill_required': 'Please fill in all the fields first',
           'fill_query': 'Please input your keyword first',
+          'reminder': 'Reminder at 11 AM'
         },
         'id': {
           'restaurant': 'Restoran',
@@ -46,6 +47,7 @@ class Translation extends Translations {
           'settings': 'Pengaturan',
           'fill_required': 'Isi semua kolom terlebih dahulu',
           'fill_query': 'Masukkan kata kunci terlebih dahulu',
+          'reminder': 'Ingatkan pukul 11 Pagi'
         }
       };
 }

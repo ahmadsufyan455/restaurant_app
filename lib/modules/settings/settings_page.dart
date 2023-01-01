@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
+import 'package:restaurant_app/modules/settings/setting_controller.dart';
 
-import '../../utils/constants.dart';
 import '../../utils/styles.dart';
 
 class SettingPage extends StatelessWidget {
@@ -12,6 +11,7 @@ class SettingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SettingController());
     return Scaffold(
       appBar: AppBar(
         leading: const BackButton(
@@ -25,10 +25,22 @@ class SettingPage extends StatelessWidget {
           style: kHeadingRegular,
         ),
       ),
-      body: Center(
-        child: Lottie.asset(
-          '$lottiePath/soon.json',
-          width: 250.0,
+      body: Obx(
+        () => Column(
+          children: [
+            ListTile(
+              title: Text(
+                'reminder'.tr,
+                style: kBodyRegular,
+              ),
+              trailing: Switch.adaptive(
+                value: controller.isScheduled,
+                onChanged: (value) {
+                  controller.scheduleRestaurant(value);
+                },
+              ),
+            )
+          ],
         ),
       ),
     );
