@@ -22,6 +22,7 @@ class SearchRestaurant extends StatelessWidget {
     final controller = Get.put(SearchController());
     return Scaffold(
       backgroundColor: kGreyWhite,
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
           children: [
