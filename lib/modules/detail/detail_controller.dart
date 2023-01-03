@@ -15,7 +15,7 @@ class DetailController extends GetxController
   final _apiProvider = ApiProvider();
   late SharedPreferences prefs;
 
-  void getRestaurants() => Get.find<FavoriteController>().getRestaurants();
+  void getRestaurants() => Get.put(FavoriteController()).getRestaurants();
 
   final DatabaseHelper _dbHelper = DatabaseHelper();
   RxBool isFavorite = false.obs;
